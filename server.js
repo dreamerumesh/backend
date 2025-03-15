@@ -40,7 +40,7 @@ const redisDel = promisify(client.del).bind(client);
 
 app.use(cors({
   origin: [
-      '0signify.netlify.app',  // ✅ Add your deployed frontend URL here
+      'https://0signify.netlify.app/',  // ✅ Add your deployed frontend URL here
       'http://localhost:5173'      // ✅ Keep this for local development
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
