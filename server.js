@@ -38,10 +38,14 @@ const redisGet = promisify(client.get).bind(client);
 const redisSet = promisify(client.set).bind(client);
 const redisDel = promisify(client.del).bind(client);
 
-// Use CORS middleware
 app.use(cors({
-    
-  }));
+  origin: [
+      'https://yourfrontend.com',  // ✅ Add your deployed frontend URL here
+      'http://localhost:5173'      // ✅ Keep this for local development
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
